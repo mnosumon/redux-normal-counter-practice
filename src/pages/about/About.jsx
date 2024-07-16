@@ -9,7 +9,11 @@ const About = () => {
   return (
     <>
       <h1 className="text-4xl">{recivedCount}</h1>
-      <h1 className="text-4xl">{recieveInputvalue}</h1>
+      {recieveInputvalue.map((item, index) => (
+        <h1 key={index} className="text-4xl">
+          {item}
+        </h1>
+      ))}
     </>
   );
 };

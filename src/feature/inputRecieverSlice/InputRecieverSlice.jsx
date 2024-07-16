@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  inputValue: "",
+  inputValue: [],
 };
 
 export const InputRecieverSlice = createSlice({
@@ -9,7 +9,7 @@ export const InputRecieverSlice = createSlice({
   initialState,
   reducers: {
     inputHandle: (state, action) => {
-      state.inputValue = action.payload;
+      state.inputValue.push(action.payload);
     },
   },
 });
