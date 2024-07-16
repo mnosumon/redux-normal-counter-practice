@@ -1,14 +1,26 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { inputHandle } from "../../feature/inputRecieverSlice/InputRecieverSlice";
 
 const User = () => {
   let [input, setInput] = useState("");
+  const recieveInputvalue = useSelector(
+    (state) => state.inputValueReciever.inputValue
+  );
   let dispatch = useDispatch();
 
   let handleClick = (e) => {
     e.preventDefault();
-    dispatch(inputHandle(input));
+    let idGenaret =
+      recieveInputvalue.length > 0
+        ? Math.max(...recieveInputvalue.map((item) => item.id))
+        : 0;
+    let users = {
+      id: idGenaret + 1,
+      userName: input,
+    };
+    dispatch(inputHandle(users));
+    setInput("");
   };
   return (
     <>

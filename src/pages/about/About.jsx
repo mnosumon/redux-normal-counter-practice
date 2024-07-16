@@ -6,14 +6,18 @@ const About = () => {
   let recieveInputvalue = useSelector(
     (state) => state.inputValueReciever.inputValue
   );
+
   return (
     <>
-      <h1 className="text-4xl">{recivedCount}</h1>
-      {recieveInputvalue.map((item, index) => (
-        <h1 key={index} className="text-4xl">
-          {item}
-        </h1>
-      ))}
+      <div className="container">
+        <h1 className="text-4xl">{recivedCount}</h1>
+        {recieveInputvalue.map((item, index) => (
+          <div key={index} className=" text-4xl">
+            <h1>{item.id}</h1>
+            <h1>{item.userName}</h1>
+          </div>
+        ))}
+      </div>
     </>
   );
 };
