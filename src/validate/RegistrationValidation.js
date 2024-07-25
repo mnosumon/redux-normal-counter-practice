@@ -6,5 +6,11 @@ export const registrationError = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
     .required("Enter valide email"),
-  password: Yup.string().min(8).required("Enter valide password"),
+  password: Yup.string()
+    .min(8)
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Must be use 1 special charecter"
+    )
+    .required("Enter valide password"),
 });
